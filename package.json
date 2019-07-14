@@ -5,8 +5,10 @@
   "author": "Luiz Felipe Gonçalves <https://luizfelipe.dev>",
   "license": "MIT",
   "scripts": {
+    "lint": "eslint . --ext .jsx,.js,.ts,.tsx",
+    "lint:fix": "yarn lint --fix",
     "check:ts": "tsc --noEmit --skipLibCheck",
-    "check:all": "yarn check:ts",
+    "check:all": "yarn lint && yarn check:ts",
     "build": "del dist && tsc",
     "dev": "nodemon --ext js,jsx,ts,tsx --exec ts-node src/index",
     "prod": "yarn build && NODE_ENV=production node dist/index"
@@ -14,6 +16,8 @@
   "dependencies": {},
   "devDependencies": {
     "del-cli": "^2.0.0",
+    "eslint": "5.x",
+    "eslint-config-lffg": "^1.8.0",
     "nodemon": "^1.19.1",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3"
