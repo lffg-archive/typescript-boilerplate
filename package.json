@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "name": "typescript-boilerplate",
+  "version": "0.0.0",
+  "author": "Luiz Felipe Gonçalves <https://luizfelipe.dev>",
+  "license": "MIT",
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {}
+}
