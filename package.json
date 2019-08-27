@@ -9,9 +9,9 @@
     "lint:fix": "yarn lint --fix",
     "check:ts": "tsc --noEmit --skipLibCheck",
     "check:all": "yarn lint && yarn check:ts",
-    "build": "del dist && tsc",
+    "build": "del build && tsc",
     "dev": "nodemon --ext js,jsx,ts,tsx --exec ts-node src/index",
-    "prod": "yarn build && NODE_ENV=production node dist/index"
+    "prod": "yarn build && NODE_ENV=production node build/index"
   },
   "dependencies": {},
   "devDependencies": {
