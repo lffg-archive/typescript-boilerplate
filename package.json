@@ -1,0 +1,47 @@
+{
+  "name": "package_name",
+  "version": "package_version",
+  "description": "package_description",
+  "main": "src/index.ts",
+  "author": "Luiz Felipe Gonçalves <https://github.com/lffg>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "format:raw": "prettier --write",
+    "format": "yarn format:raw '**/*.{js,jsx,ts,tsx,json,vue,css,scss,less,graphql,gql,md,mdx,yml,yaml}'",
+    "lint": "yarn lint:raw .",
+    "lint:fix": "yarn lint:raw --fix .",
+    "lint:raw": "eslint --ext .js,.jsx,.ts,.tsx --max-warnings=0",
+    "test": "jest",
+    "check:ts": "tsc --noEmit",
+    "check:all": "yarn lint && yarn check:ts && yarn test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^24.0.20",
+    "@types/node": "^12.11.7",
+    "del-cli": "^3.0.0",
+    "eslint": "6.x",
+    "eslint-config-lffg": "^9.0.0",
+    "husky": "^3.0.9",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.4.2",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && yarn check:all"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,vue,css,scss,less,graphql,gql,md,mdx,yml,yaml}": [
+      "yarn format:raw",
+      "git add"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "yarn lint:raw --ignore-pattern '!.prettierrc.js'",
+      "git add"
+    ]
+  }
+}
